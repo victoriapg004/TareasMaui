@@ -20,5 +20,9 @@
 
             SemanticScreenReader.Announce(CounterBtn.Text);
         }
+        private async void OnNuevaTareaClicked(object? sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(TareaFormPage));
+        }
     }
 }
