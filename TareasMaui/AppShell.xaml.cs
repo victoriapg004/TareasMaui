@@ -1,4 +1,5 @@
-﻿namespace TareasMaui
+﻿
+namespace TareasMaui
 {
     public partial class AppShell : Shell
     {
