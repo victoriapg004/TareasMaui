@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TareasMaui.TareaFormPage"
+    Title="Nueva tarea"
+    BackgroundColor="#F5F5FA">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="25"
+            Spacing="15">
+
+            <Label
+                Text="Registrar nueva tarea"
+                FontSize="26"
+                FontAttributes="Bold"
+                TextColor="#30244F" />
+
+            <Label
+                Text="Complete los siguientes datos"
+                FontSize="14"
+                TextColor="#666666" />
+
+            <Label
+                Text="Título"
+                FontAttributes="Bold"
+                TextColor="#30244F" />
+
+            <Entry
+                x:Name="txtTitulo"
+                Placeholder="Ingrese el título de la tarea"
+                MaxLength="100"
+                BackgroundColor="White"
+                TextColor="Black"
+                PlaceholderColor="#777777" />
+
+            <Label
+                Text="Descripción"
+                FontAttributes="Bold"
+                TextColor="#30244F" />
+
+            <Editor
+                x:Name="txtDescripcion"
+                Placeholder="Ingrese la descripción"
+                HeightRequest="120"
+                BackgroundColor="White"
+                TextColor="Black"
+                PlaceholderColor="#777777" />
+
+            <Label
+                Text="Prioridad"
+                FontAttributes="Bold"
+                TextColor="#30244F" />
+
+            <Picker
+                x:Name="pickerPrioridad"
+                Title="Seleccione una prioridad"
+                BackgroundColor="White"
+                TextColor="Black"
+                TitleColor="#777777">
+
+                <Picker.Items>
+                    <x:String>Alta</x:String>
+                    <x:String>Media</x:String>
+                    <x:String>Baja</x:String>
+                </Picker.Items>
+
+            </Picker>
+
+            <Label
+                x:Name="lblError"
+                TextColor="Red"
+                FontSize="14"
+                IsVisible="False" />
+
+            <Button
+                Text="Guardar tarea"
+                BackgroundColor="#512BD4"
+                TextColor="White"
+                CornerRadius="10"
+                Clicked="OnGuardarClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
