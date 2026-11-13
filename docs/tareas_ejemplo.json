@@ -1,0 +1,26 @@
+[
+  { 
+    "id": 1, 
+    "titulo": "Estudiar programación", 
+    "descripcion": "Repasar los ejercicios de la clase de MAUI", 
+    "prioridad": "Alta" 
+ },
+ { 
+    "id": 2,
+    "titulo": "Entregar informe escrito", 
+    "descripcion": "Revisar fuentes y comparación con Flutter", 
+    "prioridad": "Media" 
+ },
+ { 
+    "id": 3, 
+    "titulo": "Preparar diapositivas", 
+    "descripcion": "Usos, ventajas, limitaciones y conclusiones", 
+    "prioridad": "Media" 
+ },
+ { 
+    "id": 4, 
+    "titulo": "Probar flujo completo", 
+    "descripcion": "Crear una tarea y verificar que aparece en la lista", 
+    "prioridad": "Baja" 
+ }
+]
