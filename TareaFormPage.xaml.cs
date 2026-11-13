@@ -46,7 +46,8 @@ namespace TareasMaui
             {
                 Titulo = titulo,
                 Descripcion = descripcion,
-                Prioridad = prioridad
+                Prioridad = prioridad,
+                EsLocal = true,
             };
 
             DatosTareas.ListaTareas.Add(nuevaTarea);
