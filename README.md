@@ -16,7 +16,7 @@ Aplicación de gestión de tareas desarrollada con **.NET MAUI** (C# + XAML). Pe
 |---|---|
 | .NET SDK | 10.0 (fijado en `global.json`) |
 | Workload de MAUI | `dotnet workload install maui` |
-| JDK | **21** (con el JDK 25 la compilación para Android falla con el error XA0030) |
+| JDK | **21** (con otras versiones, como JDK 23 o 25, la compilación para Android falla con el error XA0030) |
 | Android SDK + emulador | Plataforma API 36 instalada (se gestiona desde Android Studio) |
 | Python 3.10+ y Django | Solo para levantar la API |
 
