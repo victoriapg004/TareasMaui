@@ -48,7 +48,7 @@ namespace TareasMaui
 
             var resultado = await _api.ObtenerTareasAsync();
 
-            // Quita las tareas que venían de la API (conserva las locales)
+            
             for (int i = DatosTareas.ListaTareas.Count - 1; i >= 0; i--)
             {
                 if (!DatosTareas.ListaTareas[i].EsLocal)
@@ -71,7 +71,6 @@ namespace TareasMaui
                     var ejemplo = await _api.CargarDatosEjemploAsync();
                     foreach (var tarea in ejemplo)
                     {
-                        tarea.EsLocal = true;
                         DatosTareas.ListaTareas.Add(tarea);
                     }
                     mensaje += " Mostrando datos de ejemplo.";

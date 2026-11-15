@@ -23,7 +23,7 @@ Aplicación de gestión de tareas desarrollada con **.NET MAUI** (C# + XAML). Pe
 ## Instalación
 
 ```bash
-git clone <URL-DEL-REPOSITORIO>
+git clone https://github.com/victoriapg004/TareasMaui.git
 cd TareasMaui
 dotnet restore
 ```
@@ -90,7 +90,7 @@ Android bloquea HTTP sin cifrar por defecto. Se habilitó solo para `10.0.2.2` y
 
 - `Resources/Raw/tareas_ejemplo.json`: datos ficticios que la app carga si la API no responde (copia en `docs/`).
 - Los datos de la API están en `backend/tareas/views.py`.
-- No hay credenciales, tokens ni claves en el repositorio. `.env` y `*.keystore` están en `.gitignore`.
+- No hay credenciales ni tokens en el repositorio. La SECRET_KEY de settings.py es la clave de desarrollo que Django genera por defecto, no protege nada real, en producción debe leerse de una variable de entorno. `.env` y `*.keystore` están en `.gitignore`.
 
 ## Estructura del proyecto
 
@@ -104,7 +104,7 @@ TareasMaui/
 ├── TareaFormPage.xaml(.cs)             Formulario con validaciones
 ├── Platforms/         Código específico por plataforma
 ├── Resources/         Estilos, imágenes, Raw/tareas_ejemplo.json
-└── docs/              Pruebas, capturas e informe
+└── docs/              Capturas de pruebas y datos de ejemplo
 ```
 
 ## Limitaciones conocidas
@@ -114,11 +114,11 @@ TareasMaui/
 - No hay edición, eliminación ni marcar tareas como completadas.
 - No hay autenticación contra la API.
 - La API de ejemplo devuelve datos fijos, sin base de datos.
-- Probado en Windows y en emulador Android (Pixel 8, API 36). [CONFIRMAR] iOS y macOS no se probaron: requieren una Mac.
+- Probado en Windows y en emulador Android (Pixel 8, API 36). iOS y macOS no se probaron: requieren una Mac.
 
 ## Pruebas
 
-Ver [`docs/PRUEBAS.md`](docs/PRUEBAS.md) y las capturas en `docs/capturas/`.
+Las capturas de las pruebas están en `docs/capturas/`.
 
 ## Autores
 
