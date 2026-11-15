@@ -1,17 +1,26 @@
+using System.Text.Json.Serialization;
 
 namespace TareasMaui.Models
 {
     public class Tarea
     {
+        public int Id { get; set; }
+
         public string Titulo { get; set; } = "";
         public string Descripcion { get; set; } = "";
         public string Prioridad { get; set; } = "";
+
+        [JsonIgnore]
+        public bool EsLocal { get; set; }
+
+        // Color de la etiqueta de prioridad
+        [JsonIgnore]
+        public Color ColorPrioridad => Prioridad?.Trim().ToLowerInvariant() switch
+        {
+            "alta" => Color.FromArgb("#D32F2F"),
+            "media" => Color.FromArgb("#F57C00"),
+            "baja" => Color.FromArgb("#388E3C"),
+            _ => Color.FromArgb("#757575")
+        };
     }
 }
-
-// Tarea nuevaTarea = new Tarea
-// {
-//     Titulo = "Estudiar programación",
-//     Descripcion = "Repasar los ejercicios de la clase",
-//     Prioridad = "Alta"
-// };

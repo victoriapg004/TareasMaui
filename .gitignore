@@ -9,3 +9,9 @@ obj/
 
 # OS-generated files
 .DS_Store
+
+.vscode/
+.env
+*.env
+*.keystore
+*.jks

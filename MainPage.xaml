@@ -9,83 +9,135 @@
 
     <Grid
         Padding="20"
-        RowDefinitions="Auto,Auto,*"
-        RowSpacing="15">
+        RowDefinitions="Auto,Auto,Auto,*"
+        RowSpacing="12">
 
         <Label
             Grid.Row="0"
             Text="Mis tareas"
             FontSize="28"
             FontAttributes="Bold"
-            TextColor="#30244F" />
+            TextColor="#30244F"
+            SemanticProperties.HeadingLevel="Level1"/>
 
-        <Button
-            Grid.Row="1"
-            Text="Nueva tarea"
-            BackgroundColor="#512BD4"
-            TextColor="White"
-            CornerRadius="10"
-            Clicked="OnNuevaTareaClicked" />
+        <Grid Grid.Row="1"
+                ColumnDefinitions="*,Auto"
+                ColumnSpacing="10">
+            <Button
+                Grid.Column="0"
+                Text="Nueva tarea"
+                BackgroundColor="#512BD4"
+                TextColor="White"
+                CornerRadius="10"
+                Clicked="OnNuevaTareaClicked"/>
 
-        <CollectionView
+            <Button
+                Grid.Column="1"
+                x:Name="btnActualizar"
+                Text="Actualizar"
+                BackgroundColor="White"
+                TextColor="#512BD4"
+                BorderColor="#512BD4"
+                BorderWidth="1"
+                CornerRadius="10"
+                Clicked="OnActualizarClicked"/>
+        </Grid>
+
+        <Border
             Grid.Row="2"
-            x:Name="listaTareas"
-            SelectionMode="None">
-
-            <CollectionView.EmptyView>
+            x:Name="bannerEstado"
+            StrokeThickness="0"
+            StrokeShape="RoundRectangle 8"
+            Padding="12,8"
+            IsVisible="False">
+            <HorizontalStackLayout Spacing="10">
+                <ActivityIndicator
+                    x:Name="indicadorCarga"
+                    IsRunning="False"
+                    IsVisible="False"
+                    Color="#512BD4"
+                    HeightRequest="20"
+                    WidthRequest="20"/>
                 <Label
-                    Text="No hay tareas registradas."
-                    FontSize="16"
-                    TextColor="#666666"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center" />
-            </CollectionView.EmptyView>
+                    x:Name="lblEstado"
+                    FontSize="14"
+                    VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+        </Border>
 
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="models:Tarea">
+        <RefreshView
+            Grid.Row="3"
+            x:Name="refreshView"
+            Refreshing="OnRefreshing">
 
-                    <Border
-                        BackgroundColor="White"
-                        Stroke="#DDDDDD"
-                        StrokeThickness="1"
-                        StrokeShape="RoundRectangle 12"
-                        Padding="15"
-                        Margin="0,5">
+            <CollectionView
+                x:Name="listaTareas"
+                SelectionMode="None">
 
-                        <VerticalStackLayout Spacing="10">
+                <CollectionView.EmptyView>
+                    <Label
+                        Text="No hay tareas registradas."
+                        FontSize="16"
+                        TextColor="#666666"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                </CollectionView.EmptyView>
 
-                            <Label
-                                Text="{Binding Titulo}"
-                                FontSize="20"
-                                FontAttributes="Bold"
-                                TextColor="#30244F" />
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Tarea">
 
-                            <Label
-                                Text="{Binding Descripcion}"
-                                FontSize="15"
-                                TextColor="#555555" />
+                        <Border
+                            BackgroundColor="White"
+                            Stroke="#DDDDDD"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 12"
+                            Padding="15"
+                            Margin="0,5">
 
-                            <HorizontalStackLayout Spacing="5">
+                            <VerticalStackLayout Spacing="8">
 
                                 <Label
-                                    Text="Prioridad:"
+                                    Text="{Binding Titulo}"
+                                    FontSize="20"
                                     FontAttributes="Bold"
-                                    TextColor="#30244F" />
+                                    TextColor="#30244F"/>
 
                                 <Label
-                                    Text="{Binding Prioridad}"
-                                    TextColor="#512BD4" />
+                                    Text="{Binding Descripcion}"
+                                    FontSize="15"
+                                    TextColor="#555555"/>
 
-                            </HorizontalStackLayout>
+                                <HorizontalStackLayout Spacing="8">
 
-                        </VerticalStackLayout>
+                                    <Label
+                                        Text="Prioridad:"
+                                        FontAttributes="Bold"
+                                        TextColor="#30244F"
+                                        VerticalOptions="Center"/>
 
-                    </Border>
+                                    <Border
+                                        BackgroundColor="{Binding ColorPrioridad}"
+                                        StrokeThickness="0"
+                                        StrokeShape="RoundRectangle 10"
+                                        Padding="10,2">
+                                        <Label
+                                            Text="{Binding Prioridad}"
+                                            TextColor="White"
+                                            FontSize="13"
+                                            FontAttributes="Bold"/>
+                                    </Border>
 
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
+                                </HorizontalStackLayout>
 
-        </CollectionView>
+                            </VerticalStackLayout>
+
+                        </Border>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </RefreshView>
 
     </Grid>
 
