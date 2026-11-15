@@ -14,7 +14,7 @@ Aplicación de gestión de tareas desarrollada con **.NET MAUI** (C# + XAML). Pe
 
 | Componente | Versión / nota |
 |---|---|
-| .NET SDK | 10.0 (fijado en `global.json`) |
+| .NET SDK | 10.0 (`global.json` acepta cualquier SDK 10.0.x) |
 | Workload de MAUI | `dotnet workload install maui` |
 | JDK | **21** (con otras versiones, como JDK 23 o 25, la compilación para Android falla con el error XA0030) |
 | Android SDK + emulador | Plataforma API 36 instalada (se gestiona desde Android Studio) |
